@@ -1,0 +1,589 @@
+/* Estilo Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('img/6.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Oculta todas as seções inicialmente */
+section {
+    display: none;
+    z-index: 1;  /* Garante que o conteúdo não se sobreponha */
+}
+
+/* Exibe as seções com a classe 'conteudo-visivel' */
+.conteudo-visivel {
+    display: block !important; /* Exibe a seção com prioridade */
+    z-index: 10;  /* Coloca a seção ativa acima das outras */
+}
+
+
+/* Círculo no canto superior esquerdo */
+.circulo {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: url('img/3.png') no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 4px 12px rgb(30, 238, 141);
+}
+
+/* Header */
+header {
+    background-color: rgba(113, 228, 248, 0.8);
+    color: white;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 120px; /* Garantir que o texto não sobreponha o círculo */
+}
+
+/* Estilo do título e parágrafo no header */
+header h1 {
+    font-size: 2rem; /* Tamanho ajustado para o header */
+    color: #333;
+    margin: 0;
+}
+
+header p {
+    font-size: 1rem; /* Tamanho ajustado para o parágrafo */
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Painel transparente */
+.painel-transparente {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+/* Estilos principais para o contêiner de opções */
+.painel-opcoes-wrapper {
+    padding: 10px 15px;  /* Adicionando padding para evitar que o conteúdo fique colado nas bordas */
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: nowrap;  /* Impede quebra de linha */
+    gap: 10px;  /* Espaço entre os itens */
+    justify-content: center;  /* Alinha as opções no centro */
+    overflow-x: hidden;  /* Sem rolagem horizontal */
+}
+
+.painel-opcoes-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.opcao {
+    min-width: 90px;  /* Ajustando para uma largura menor */
+    height: 80px;     /* Ajustando para uma altura menor */
+    border-radius: 10px;
+    padding: 10px;     /* Ajustando o padding para um tamanho mais compacto */
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de zoom */
+}
+
+.opcao:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.painel-1 { background-image: url('img/4.png'); }
+.painel-2 { background-image: url('img/2.png'); }
+.painel-3 { background-image: url('img/3.png'); }
+.painel-4 { background-image: url('img/5.png'); }
+
+.opcao h2 {
+    font-size: 0.9em; /* Tamanho do texto menor */
+    margin: 0;  /* Remover margem para o título */
+}
+
+/* Estilos da Linha do Tempo */
+.linha-do-tempo-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.linha-do-tempo-evento {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Alternando as posições dos eventos para o efeito Zig-Zag */
+.linha-do-tempo-evento:nth-child(odd) {
+    flex-direction: row-reverse;
+    animation: fadeInRight 1s forwards;
+}
+
+.linha-do-tempo-evento:nth-child(even) {
+    flex-direction: row;
+    animation: fadeInLeft 1s forwards;
+}
+
+/* Imagem do evento */
+.evento-imagem {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.evento-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Descrição do evento */
+.evento-descricao {
+    max-width: 300px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.evento-descricao .data {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.evento-descricao .descricao {
+    color: #555;
+}
+
+/* Linha em zig-zag para conectar eventos */
+.linha-do-tempo-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: repeating-linear-gradient(
+        135deg,
+        #3498db,
+        #3498db 5px,
+        transparent 5px,
+        transparent 10px
+    ); /* Zig-zag em azul */
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+/* Ajuste para posicionar os eventos */
+.linha-do-tempo-evento {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+
+/* Alternar o lado dos eventos para o efeito de zig-zag */
+.linha-do-tempo-evento:nth-child(odd) {
+    flex-direction: row-reverse;
+    animation: fadeInRight 1s forwards;
+}
+
+.linha-do-tempo-evento:nth-child(even) {
+    flex-direction: row;
+    animation: fadeInLeft 1s forwards;
+}
+
+
+/* Efeitos de Fade-In para os eventos */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animar o desbloqueio de cada evento */
+.linha-do-tempo-evento.aberto {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Seções com conteúdo */
+section {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    color: rgb(8, 0, 0);
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Classe para exibir a seção */
+.conteudo-visivel {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+#botao-proximo, #botao-anterior {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#botao-proximo:hover, #botao-anterior:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 70%;  /* Aumentei o tamanho do modal */
+    max-width: 900px; /* Aumentei o tamanho máximo */
+    text-align: center;
+    position: relative;
+}
+
+.fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-imagem-container {
+    margin-bottom: 20px;
+}
+
+#modal-imagem {
+    max-width: 100%;  /* Faz a imagem ocupar toda a largura disponível no modal */
+    height: auto;
+    border-radius: 8px;
+}
+
+#botao-proximo-modal, #botao-anterior-modal {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#botao-proximo-modal:hover, #botao-anterior-modal:hover {
+    background-color: #45a049;
+}
+/* Estilo para a seção de cartões */
+.cartao {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para a imagem do cartão */
+.cartao-imagem {
+    width: 100px; /* Tamanho do quadrado */
+    height: 100px;
+    margin-right: 15px;
+    object-fit: cover; /* Garante que a imagem se ajuste ao quadrado */
+    border-radius: 8px;
+}
+
+/* Estilo para o texto do cartão */
+.cartao-texto {
+    flex: 1;
+}
+
+.cartao-texto h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.cartao-texto p {
+    margin: 5px 0 0;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Ajustes no painel de opções */
+    .painel-opcoes-wrapper {
+        gap: 8px; /* Menor espaçamento entre as opções */
+    }
+
+    .opcao {
+        min-width: 85px;  /* Diminuir mais o tamanho das opções */
+        height: 75px;     /* Diminuir mais a altura das opções */
+        font-size: 0.8rem; /* Ajuste do tamanho da fonte */
+    }
+
+    /* Ajustes no texto do header */
+    header h1 {
+        font-size: 1.6rem; /* Diminuir o tamanho do título */
+    }
+
+    header p {
+        font-size: 0.9rem; /* Diminuir o tamanho do parágrafo */
+    }
+}
+
+@media (max-width: 480px) {
+    .opcao {
+        min-width: 75px;  /* Mais compacta em telas menores */
+        height: 70px;     /* Mais compacta em telas menores */
+        font-size: 0.7rem; /* Fontes menores */
+    }
+
+    header h1 {
+        font-size: 1.4rem; /* Tamanho ainda menor do título */
+    }
+
+    header p {
+        font-size: 0.8rem; /* Tamanho ainda menor do parágrafo */
+    }
+}
+/* Estilos para o modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escurecido */
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    padding: 20px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    top: 10%;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+.musica-efeito {
+    animation: pulsar 1s infinite;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255, 105, 180, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.imagem-musica img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}    
+
+.controles-musica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.controles-musica button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #5bcf9f8c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito hover (ao passar o mouse) */
+.controles-musica button:hover {
+    background-color: #43a0c5; /* Muda a cor de fundo */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* Efeito de clique */
+.controles-musica button:active {
+    transform: scale(0.95); /* Reduz ligeiramente o botão ao clicar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao clicar */
+}
+
+/* Destaque no botão de Play */
+#btn-play {
+    font-size: 22px;
+    padding: 12px 24px;
+    background-color: #e41515a1;
+    animation: pulse 1.5s infinite; /* Efeito de pulsação contínua */
+}
+
+/* Efeito de pulsação */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Leve aumento no meio da animação */
+    }
+}
+
+.progresso {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+#barra-progresso {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, #ff8a00, #e52e71, #007aff);
+    transition: width 0.1s;
+}
+
+.imagem-capa {
+    transition: transform 2s ease, opacity 2s ease;
+}
+
+.efeito-imagem {
+    transform: scale(1.1);
+    opacity: 0.5;
+}
+
+
+/* Modal e Conteúdo */
+.modal .conteudo-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#titulo-musica {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
