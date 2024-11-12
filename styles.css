@@ -1,0 +1,180 @@
+/* Centralizando a página */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('imagens/c10.png'); /* Adicione o caminho da sua imagem aqui */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+/* Container para alinhar todos os elementos */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px; /* Reduzido para dispositivos móveis */
+    padding: 10px;
+}
+
+/* Estilos do painel */
+.panel {
+    background-color: rgba(0, 0, 0, 0.5); /* Mais transparência para os painéis */
+    padding: 15px; /* Reduzido para dar um visual mais compacto */
+    border-radius: 8px; /* Bordas mais suaves */
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos do formulário de login */
+#loginForm input {
+    width: 90%; /* Reduzido para menos largura */
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(51, 51, 51, 0.7); /* Transparência no fundo dos inputs */
+    color: white;
+    font-size: 0.8em; /* Diminuído para tela pequena */
+}
+
+#loginForm button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff66b2; /* Cor feminina, com leve transparência */
+    color: black;
+    font-size: 0.9em; /* Fonte menor para dispositivos móveis */
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    background-color: #ff3385; /* Cor ao passar o mouse */
+}
+
+/* Estilos do painel de contador */
+#counterSection {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparência do painel */
+    padding: 15px;
+    border-radius: 8px; /* Bordas arredondadas */
+    text-align: center;
+}
+
+#timer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 12px; /* Menor espaçamento */
+}
+
+.timer-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1); /* Transparência leve */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
+}
+
+.time-box {
+    font-size: 1.2em; /* Diminuído para se ajustar a telas pequenas */
+    color: #0ff;
+    font-family: 'Courier New', monospace;
+}
+
+.label {
+    font-size: 0.6em; /* Diminuído para se ajustar melhor */
+    color: #fff;
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 400px) {
+    .container {
+        padding: 5px;
+        width: 100%;
+        max-width: 95%;
+    }
+
+    /* Ajuste nos campos de login e no botão */
+    #loginForm input, #loginForm button {
+        width: 100%; /* Para o login ocupar toda a largura */
+        font-size: 0.8em; /* Fontes menores em telas pequenas */
+        padding: 8px;
+    }
+
+    /* Ajustar o contador para ser menor em telas pequenas */
+    #timer {
+        flex-direction: column;
+    }
+
+    .timer-item {
+        width: 30%; /* Caixa do contador menor */
+    }
+
+    .time-box {
+        font-size: 1em; /* Reduzir ainda mais o tamanho do contador */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajuste para telas médias (tablets e etc.) */
+    #counterSection, #loginPanel {
+        width: 90%;
+    }
+
+    .timer-item {
+        width: 50%; /* Ajuste mais compacto em tablets */
+    }
+
+    .time-box {
+        font-size: 1em;
+    }
+}
+/* Estilos do botão "Entrar" */
+#enterButton {
+    display: none;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #c49cde; /* Cor lilás */
+    color: #121212; /* Cor do texto */
+    font-size: 1.1em;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+#enterButton:hover {
+    background-color: #b389d4; /* Cor lilás escuro ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .panel {
+        width: 90%;
+    }
+
+    .time-box {
+        font-size: 1em;
+    }
+}

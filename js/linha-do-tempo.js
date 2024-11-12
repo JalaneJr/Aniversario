@@ -1,6 +1,9 @@
 let eventoAtual = 0; // Inicia no primeiro evento (index 0)
 let totalEventos = 22; // Total de eventos
 
+// Variável para armazenar a seção que está aberta atualmente
+
+
 const eventos = [
     { data: "01/01/2000", descricao: "Primeira lembrança...", imagem: "img/1.png" },
     { data: "01/01/2001", descricao: "Evento especial no ano 2001", imagem: "img/2.png" },
@@ -23,37 +26,67 @@ const eventos = [
     { data: "01/01/2018", descricao: "Novidades de 2018", imagem: "img/19.png" },
     { data: "01/01/2019", descricao: "Eventos de 2019", imagem: "img/20.png" },
     { data: "01/01/2020", descricao: "Recomeço em 2020", imagem: "img/21.png" },
-    { data: "01/01/2022", descricao: "Evento final com uma surpresa!", imagem: "img/22.png", video: "video/nome-do-video.mp4" } // Evento 22 com vídeo
+    { data: "01/01/2022", descricao: "Evento final com uma surpresa!", imagem: "img/22.png", video: "video/Natalia.mp4" } // Evento 22 com vídeo
 ];
+
+
+// Função para ocultar todas as seções
+function ocultarTodasAsSecoes() {
+    const secoes = document.querySelectorAll('section');
+    secoes.forEach(secao => {
+        secao.classList.remove('conteudo-visivel');
+    });
+}
 
 // Função para mostrar a linha do tempo e o primeiro evento
 function mostrarLinhaDoTempo() {
-    const linhaDoTempoWrapper = document.getElementById('linha-do-tempo-wrapper');
-    
-    // Gera o HTML para cada evento e insere no wrapper
-    eventos.forEach((evento, index) => {
-        const eventoDiv = document.createElement('div');
-        eventoDiv.classList.add('linha-do-tempo-evento');
-        eventoDiv.id = `evento-${index + 1}`;
-        eventoDiv.style.display = 'none'; // Inicialmente oculta os eventos
-        
-        eventoDiv.innerHTML = `
-            <div class="evento-imagem">
-                <img src="${evento.imagem}" alt="Evento ${index + 1}">
-            </div>
-            <div class="evento-descricao">
-                <p class="data">${evento.data}</p>
-                <p class="descricao">${evento.descricao}</p>
-                <button onclick="exibirDetalhes(${index})">Ver Detalhes</button>
-            </div>
-        `;
-        
-        linhaDoTempoWrapper.appendChild(eventoDiv);
-    });
+    ocultarTodasAsSecoes();
 
-    // Torna a seção visível e mostra o primeiro evento
-    mostrarEvento(eventoAtual);
+    const linhaDoTempoWrapper = document.getElementById('linha-do-tempo-wrapper');
+    if (linhaDoTempoWrapper) {
+        linhaDoTempoWrapper.classList.add('conteudo-visivel');
+
+        // Adiciona o botão "Fechar" no topo da seção
+        linhaDoTempoWrapper.innerHTML = `
+            <button onclick="fecharLinhaDoTempo()" class="btn-fechar">Fechar</button>
+            <h2>Linha do Tempo</h2>
+        `;
+
+        // Gera os eventos da linha do tempo
+        eventos.forEach((evento, index) => {
+            const eventoDiv = document.createElement('div');
+            eventoDiv.classList.add('linha-do-tempo-evento');
+            eventoDiv.id = `evento-${index + 1}`;
+            eventoDiv.style.display = 'none';  // Inicialmente oculta os eventos
+
+            eventoDiv.innerHTML = `
+                <div class="evento-imagem">
+                    <img src="${evento.imagem}" alt="Evento ${index + 1}">
+                </div>
+                <div class="evento-descricao">
+                    <p class="data">${evento.data}</p>
+                    <p class="descricao">${evento.descricao}</p>
+                    <button onclick="exibirDetalhes(${index})">Ver Detalhes</button>
+                </div>
+            `;
+            linhaDoTempoWrapper.appendChild(eventoDiv);
+        });
+
+        // Torna o primeiro evento visível
+        mostrarEvento(0);  // Exibe o primeiro evento
+    } else {
+        console.error('Seção "Linha do Tempo" não encontrada.');
+    }
 }
+
+// Função para fechar a seção de Linha do Tempo
+function fecharLinhaDoTempo() {
+    const linhaDoTempoWrapper = document.getElementById('linha-do-tempo-wrapper');
+    if (linhaDoTempoWrapper) {
+        linhaDoTempoWrapper.classList.remove('conteudo-visivel');
+    }
+}
+
 
 // Função para mostrar um evento específico
 function mostrarEvento(indice) {
@@ -106,7 +139,21 @@ function exibirDetalhes(indice) {
     // Exibe o modal
     modal.style.display = "block";
 }
+// Função para esconder o botão "Próximo" de todas as seções
+function esconderBotaoProximo() {
+    const botaoProximo = document.getElementById('botao-proximo');
+    if (botaoProximo) {
+        botaoProximo.style.display = 'none';
+    }
+}
 
+// Função para mostrar o botão "Próximo" quando a seção Linha do Tempo estiver visível
+function mostrarBotaoProximo() {
+    const botaoProximo = document.getElementById('botao-proximo');
+    if (botaoProximo) {
+        botaoProximo.style.display = 'block';
+    }
+}
 // Função para exibir o modal com o vídeo
 function exibirVideo(urlDoVideo) {
     const modalVideo = document.getElementById("modal-video");
@@ -197,8 +244,7 @@ function eventoAnterior() {
     }
 }
 
-// Adiciona o evento de clique no botão "X" para fechar o modal
-document.getElementById("fechar-modal").addEventListener("click", fecharModal);
+
 
 // Adiciona o evento de clique no botão de fechar do vídeo
 document.getElementById("fechar-video").addEventListener("click", fecharModal);

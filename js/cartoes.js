@@ -1,18 +1,6 @@
 // cartoes.js
 
-// Função para exibir a seção de cartões e adicionar o conteúdo
-function mostrarCartoes() {
-    const secoes = document.querySelectorAll('section');
-    secoes.forEach(secao => secao.classList.remove('conteudo-visivel'));
 
-    const secaoCartoes = document.getElementById('cartoes-notificacao');
-    if (secaoCartoes) {
-        secaoCartoes.classList.add('conteudo-visivel');
-        secaoCartoes.innerHTML = gerarConteudoCartoes(); // Adiciona o conteúdo dinamicamente
-    } else {
-        console.error('Seção "Cartões" não encontrada.');
-    }
-}
 
 // Função para gerar o conteúdo HTML dos cartões virtuais
 function gerarConteudoCartoes() {

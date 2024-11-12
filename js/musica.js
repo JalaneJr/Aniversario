@@ -1,4 +1,5 @@
 // Array com os nomes dos arquivos das 10 músicas favoritas
+
 const musicasFavoritas = [
     "Adele_-_Easy_On_Me(lyrics)(256k).mp3",
     "Afrotraction_-_For_the_Lovers_(feat._Neo_Molamo)(256k).mp3",
@@ -46,6 +47,11 @@ function mostrarMusica() {
         console.error('Seção "Musica" não encontrada.');
     }
 }
+// Função para alternar a visibilidade do menu dropdown
+function toggleDropdown() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    dropdownMenu.classList.toggle("show");
+}
 
 // Função para abrir o modal e tocar a música selecionada
 function tocarMusica(index) {
@@ -64,6 +70,11 @@ function tocarMusica(index) {
     audioSource.src = `musica/${musicaSelecionada}`;
     audioPlayer.load();
 
+    // Define o link de download com a música atual
+    const downloadLink = document.getElementById("download-link");
+    downloadLink.href = `musica/${musicaSelecionada}`;
+    downloadLink.download = musicaSelecionada;
+
     // Exibe o modal e inicia a reprodução da música
     modalMusica.style.display = "block";
     audioPlayer.play();
@@ -80,6 +91,21 @@ function tocarMusica(index) {
         barraProgresso.style.background = `linear-gradient(to right, #ff8a00, #e52e71, #007aff)`;
     };
 }
+
+// Fecha o dropdown ao clicar fora dele
+window.onclick = function(event) {
+    if (!event.target.matches('.more-options')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+};
+
+
 
 // Função para alternar entre play e pause
 function togglePlay() {

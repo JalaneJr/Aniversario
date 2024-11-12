@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: url('img/6.png') no-repeat center center fixed;
+    background: url('img/Natalia.png') no-repeat center center fixed;
     background-size: cover;
     color: #333;
     text-align: center;
@@ -31,45 +31,45 @@ section {
 /* Círculo no canto superior esquerdo */
 .circulo {
     position: absolute;
-    top: 0px;
+    top: 20px;
     left: 20px;
     width: 90px;
     height: 90px;
     border-radius: 100%;
-    background: url('img/3.png') no-repeat center center;
+    background: url('img/n.png') no-repeat center center;
     background-size: cover;
     box-shadow: 0 4px 12px rgb(30, 238, 141);
 }
 
 /* Header */
 header {
-    background-color: rgba(113, 228, 248, 0.8);
+    background-color: rgba(113, 228, 248, 0);
     color: white;
     padding: 20px;
     width: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
     margin-top: 120px; /* Garantir que o texto não sobreponha o círculo */
 }
 
 /* Estilo do título e parágrafo no header */
 header h1 {
     font-size: 2rem; /* Tamanho ajustado para o header */
-    color: #333;
+    color: #ffffff;
     margin: 0;
 }
 
 header p {
     font-size: 1rem; /* Tamanho ajustado para o parágrafo */
-    color: #666;
+    color: #ffffff;
     margin-top: 10px;
 }
 
 /* Painel transparente */
 .painel-transparente {
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
     margin: 20px 0;
 }
 
@@ -78,7 +78,7 @@ header p {
     padding: 10px 15px;  /* Adicionando padding para evitar que o conteúdo fique colado nas bordas */
     background-color: rgba(255, 255, 255, 0);
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
     margin: 20px 0;
     display: flex;
     flex-wrap: nowrap;  /* Impede quebra de linha */
@@ -102,24 +102,20 @@ header p {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0);
     flex-shrink: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de zoom */
+    transition: transform 0.3s ease, box-shadow 0.6s ease; /* Efeito de zoom */
 }
 
 .opcao:hover {
     transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 15px rgb(2, 247, 194);
 }
 
-.painel-1 { background-image: url('img/4.png'); }
-.painel-2 { background-image: url('img/2.png'); }
-.painel-3 { background-image: url('img/3.png'); }
-.painel-4 { background-image: url('img/5.png'); }
 
 .opcao h2 {
     font-size: 0.9em; /* Tamanho do texto menor */
@@ -274,7 +270,7 @@ section {
 
 /* Classe para exibir a seção */
 .conteudo-visivel {
-    display: block;
+    display: none;
     animation: fadeIn 0.5s ease-in-out;
 }
 #botao-proximo, #botao-anterior {
@@ -284,10 +280,13 @@ section {
     color: white;
     border: none;
     cursor: pointer;
+    display: none;
 }
 
 #botao-proximo:hover, #botao-anterior:hover {
     background-color: #45a049;
+    display: none;
+    
 }
 
 /* Estilo para o modal */
@@ -573,17 +572,72 @@ button:hover {
 }
 
 
-/* Modal e Conteúdo */
-.modal .conteudo-modal {
+/* Estilo para o cabeçalho do modal */
+.header-modal {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
+/* Estilo para o título da música */
 #titulo-musica {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o botão de três pontinhos */
+.more-options {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
     color: #333;
+}
+
+/* Estilo do dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Exibir o menu dropdown quando ativado */
+.dropdown-content.show {
+    display: block;
+}
+.btn-fechar {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.btn-fechar:hover {
+    background-color: #ff3b3b;
 }

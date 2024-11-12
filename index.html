@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aniversário Especial</title>
     <link rel="stylesheet" href="style.css">
@@ -10,6 +11,7 @@
     <script src="js/mensagem-dia.js"></script>
     <script src="js/musica.js"></script>
     <script src="js/script.js"></script>
+    <script src="happy birtday.js"></script>
 </head>
 <body>
     <div class="circulo"></div> <!-- Círculo com imagem de fundo -->  
@@ -100,7 +102,7 @@
 
         <!-- Imagem da música (placeholder) -->
         <div class="imagem-musica">
-            <img src="img/7.png" alt="Imagem da Música" />
+            <img src="img/n.png" alt="Imagem da Música" />
         </div>
 
         <!-- Título da Música -->
@@ -113,7 +115,13 @@
     <button id="btn-play" onclick="togglePlay()">▶️</button>
     <button onclick="tocarMusicaProxima()">⏭️</button>
         </div>
-
+<!-- Botão de três pontinhos para mais opções -->
+<div class="dropdown">
+    <button class="more-options" onclick="toggleDropdown()">⋮</button>
+    <div class="dropdown-content" id="dropdown-menu">
+        <a href="" id="download-link" download>Download</a>
+    </div>
+</div>
        
         
         <!-- Barra de Progresso com efeito de cor -->
