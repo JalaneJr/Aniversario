@@ -1,9 +1,9 @@
 // Definindo credenciais com URLs de redirecionamento específicas
 const validCredentials = [
-    { name: "Natalia", contact: "863913234", showCounter: true, redirectUrl: "principal.html" },
+    { name: "Natalia", contact: "863913234", showCounter: true, redirectUrl: "index.html" },
     { name: "Jalane", contact: "852574127", showCounter: false, redirectUrl: "happy birtday.html" },
     { name: "Cacilda", contact: "879841434", showCounter: false, redirectUrl: "happy birtday.html" },
-    { name: "Genesis", contact: "823741592", showCounter: false, redirectUrl: "index.html" }
+    { name: "Genesis", contact: "823741592", showCounter: false, redirectUrl: "principal1.html" }
 ];
 
 // Função de login

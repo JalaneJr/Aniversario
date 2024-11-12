@@ -290,7 +290,7 @@ Letter.prototype.step = function () {
     // Após a fase do balão, redireciona para outra página
     if (this.phase === "done") {
       // Redirecionamento após a animação
-      window.location.href = "index.html"; // Substitua por sua URL
+      window.location.href = "principal1.html"; // Substitua por sua URL
   }
 };
 
