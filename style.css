@@ -265,7 +265,7 @@ section {
     border-radius: 8px;
     color: rgb(0, 0, 0);
     display: none;
-    box-shadow: 0 4px 12px rgb(247, 3, 125);
+    box-shadow: 0 4px 12px rgb(255, 255, 255);
 }
 
 /* Classe para exibir a seção */
@@ -594,7 +594,7 @@ button:hover {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #00000000;
+    color: #0e0d0d;
 }
 
 /* Estilo do dropdown */
