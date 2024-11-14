@@ -30,13 +30,6 @@ const eventos = [
 ];
 
 
-// Função para ocultar todas as seções
-function ocultarTodasAsSecoes() {
-    const secoes = document.querySelectorAll('section');
-    secoes.forEach(secao => {
-        secao.classList.remove('conteudo-visivel');
-    });
-}
 
 // Função para mostrar a linha do tempo e o primeiro evento
 function mostrarLinhaDoTempo() {

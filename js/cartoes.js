@@ -21,7 +21,6 @@ function gerarCartoes() {
         { titulo: "Felicidades!", mensagem: "Que a sua jornada seja sempre abençoada.", imagem: "img/c6.png" },
         { titulo: "Novo Começo!", mensagem: "Que esta nova fase traga muita realização.", imagem: "img/c7.png" },
         { titulo: "Obrigado!", mensagem: "Agradecemos por estar ao nosso lado.", imagem: "img/c8.png" },
-        { titulo: "Melhoras!", mensagem: "Desejamos uma recuperação rápida e completa.", imagem: "img/c9.png" },
         { titulo: "Gratidão!", mensagem: "Nossa eterna gratidão por tudo que você faz.", imagem: "img/c10.png" },
         { titulo: "Bons Ventos!", mensagem: "Que o futuro traga ainda mais conquistas.", imagem: "img/c11.png" },
         { titulo: "Viva!", mensagem: "Celebre cada momento com alegria e gratidão.", imagem: "img/c12.png" },
